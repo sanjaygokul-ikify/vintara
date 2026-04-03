@@ -1,0 +1,10 @@
+.bar { padding:14px 24px 20px; background:var(--bg2); border-top:1px solid var(--border); display:flex; flex-direction:column; gap:7px; }
+.wrap { display:flex; align-items:flex-end; gap:10px; background:var(--surface); border:1px solid var(--border2); border-radius:var(--r2); padding:9px 9px 9px 15px; transition:border-color 0.2s; }
+.wrap:focus-within { border-color:var(--teal-d); }
+.ta { flex:1; background:transparent; color:var(--text); font-size:14px; line-height:1.6; resize:none; max-height:140px; overflow-y:auto; caret-color:var(--teal); }
+.ta::placeholder { color:var(--text3); }
+.btn { width:34px; height:34px; border-radius:9px; background:var(--teal); color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background 0.15s, transform 0.1s; }
+.btn:hover:not(.off) { background:var(--teal-l); transform:scale(1.05); }
+.btn:active:not(.off) { transform:scale(0.96); }
+.off { background:var(--bg3); color:var(--text3); cursor:not-allowed; }
+.hint { font-size:11px; color:var(--text3); text-align:center; }

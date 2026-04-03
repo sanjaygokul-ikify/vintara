@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: ventara-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    plan: free
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false

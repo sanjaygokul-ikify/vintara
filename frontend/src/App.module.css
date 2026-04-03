@@ -1,0 +1,11 @@
+.shell { display:flex; height:100vh; overflow:hidden; background:var(--bg); }
+.main { flex:1; display:flex; flex-direction:column; overflow:hidden; min-width:0; }
+.topbar { display:flex; align-items:center; justify-content:space-between; padding:13px 24px; background:var(--bg2); border-bottom:1px solid var(--border); flex-shrink:0; }
+.topLeft { display:flex; align-items:center; gap:8px; }
+.pulse { width:8px; height:8px; border-radius:50%; background:var(--teal); animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+.status { font-size:13px; color:var(--text2); }
+.topRight { display:flex; align-items:center; gap:6px; }
+.navBtn { font-size:13px; color:var(--text2); background:transparent; padding:6px 14px; border-radius:20px; border:1px solid transparent; transition:all 0.15s; }
+.navBtn:hover { color:var(--text); border-color:var(--border2); }
+.navBtn.active { color:var(--teal-l); background:var(--surface); border-color:var(--border2); }
