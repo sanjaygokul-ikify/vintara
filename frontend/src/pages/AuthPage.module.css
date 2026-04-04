@@ -213,3 +213,9 @@
   color: var(--text3);
   text-align: center;
 }
+
+.caps {
+  color: var(--teal);
+  text-transform: uppercase;
+  font-style: normal;
+}
