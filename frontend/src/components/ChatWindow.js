@@ -23,7 +23,6 @@ function Msg({ msg }) {
         <div className={`${s.bubble} ${isUser ? s.userBubble : s.botBubble}`}>{msg.content}</div>
         {!isUser && <EmotionTag emotion={msg.emotion} />}
       </div>
-      {isUser && <div className={s.userAv}>●</div>}
     </div>
   );
 }
@@ -39,18 +38,20 @@ function Typing() {
 
 export default function ChatWindow({ messages, loading, error }) {
   const endRef = useRef(null);
-  useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages, loading]);
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, loading]);
 
   return (
     <div className={s.window}>
       <div className={s.welcome}>
-        <div className={s.welcomeTitle}>How are you feeling today?</div>
-        <div className={s.welcomeSub}>This is your safe space. Share anything — no judgment, ever.</div>
+        <div className={s.welcomeTitle}>How are you feeling?</div>
+        <div className={s.welcomeSub}>Your safe space. Share anything — no judgment.</div>
       </div>
       {messages.map((m, i) => <Msg key={i} msg={m} />)}
       {loading && <Typing />}
       {error && <div className={s.error}>{error}</div>}
-      <div ref={endRef} />
+      <div ref={endRef} style={{ height: 8 }} />
     </div>
   );
 }

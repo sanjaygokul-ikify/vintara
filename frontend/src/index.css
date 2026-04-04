@@ -19,10 +19,25 @@
   --r2:       16px;
   --font:     'DM Sans', sans-serif;
   --font-d:   'Fraunces', serif;
+  --tab-h:    64px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
-html, body, #root { height: 100%; background: var(--bg); color: var(--text); font-family: var(--font); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+html { height: 100%; height: -webkit-fill-available; }
+body {
+  height: 100%;
+  min-height: -webkit-fill-available;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+#root { height: 100%; display: flex; flex-direction: column; }
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-thumb { background: var(--surface); border-radius: 4px; }
-button { font-family: var(--font); cursor: pointer; border: none; outline: none; }
-input, textarea { font-family: var(--font); outline: none; border: none; background: transparent; }
+button { font-family: var(--font); cursor: pointer; border: none; outline: none; -webkit-tap-highlight-color: transparent; }
+input, textarea { font-family: var(--font); outline: none; border: none; background: transparent; -webkit-tap-highlight-color: transparent; font-size: 16px; }
 a { color: var(--teal-l); text-decoration: none; }
