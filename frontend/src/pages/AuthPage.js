@@ -57,7 +57,7 @@ export default function AuthPage() {
   return (
     <div className={s.page}>
       <div className={s.card}>
-        <div className={s.logo}>ventar<span>a</span></div>
+        <div className={s.logo}>vINtar<span>a</span></div>
         <div className={s.tagline}>
           {mode === 'reset'
             ? 'Reset your password'
