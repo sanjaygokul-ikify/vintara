@@ -3,9 +3,9 @@ import { LineChart, Line, ResponsiveContainer, Tooltip, YAxis } from 'recharts';
 import s from './Sidebar.module.css';
 
 const EC = {
-  happy:'#1D9E75', hopeful:'#5DCAA5', neutral:'#8aa292',
-  surprised:'#378ADD', anxious:'#EF9F27', sad:'#378ADD',
-  fearful:'#EF9F27', angry:'#E24B4A', disgusted:'#E24B4A', exhausted:'#4e6658',
+  happy: '#1D9E75', hopeful: '#5DCAA5', neutral: '#8aa292',
+  surprised: '#378ADD', anxious: '#EF9F27', sad: '#378ADD',
+  fearful: '#EF9F27', angry: '#E24B4A', disgusted: '#E24B4A', exhausted: '#4e6658',
 };
 
 function Dot({ emotion }) {
@@ -17,14 +17,14 @@ export default function Sidebar({ analytics, emotionData, userEmail, onLogout })
 
   return (
     <aside className={s.sidebar}>
-      <div className={s.logo}>ventar<span>a</span></div>
+      <div className={s.logo}>v<span className={s.caps}>IN</span>tara</div>
 
       <div className={s.userChip}>
         <div className={s.avatar}>{(userEmail || 'U')[0].toUpperCase()}</div>
         <span className={s.userEmail}>{userEmail || 'guest'}</span>
         <button className={s.logoutBtn} onClick={onLogout} title="Sign out">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
           </svg>
         </button>
       </div>
@@ -72,9 +72,9 @@ export default function Sidebar({ analytics, emotionData, userEmail, onLogout })
           <div className={s.statsGrid}>
             {[
               { val: analytics.average_mood_score, label: 'avg mood' },
-              { val: analytics.session_count,      label: 'sessions' },
-              { val: analytics.risk_sessions,      label: 'risk flags', danger: analytics.risk_sessions > 0 },
-              { val: analytics.mood_swing_index,   label: 'swing' },
+              { val: analytics.session_count, label: 'sessions' },
+              { val: analytics.risk_sessions, label: 'risk flags', danger: analytics.risk_sessions > 0 },
+              { val: analytics.mood_swing_index, label: 'swing' },
             ].map(({ val, label, danger }) => (
               <div key={label} className={s.statCard}>
                 <div className={s.statVal} style={{ color: danger ? 'var(--red)' : 'var(--teal-l)' }}>{val}</div>
