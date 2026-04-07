@@ -1,9 +1,4 @@
--- ============================================================
--- Ventara Database Schema
--- Paste this entire file into Supabase → SQL Editor → Run
--- ============================================================
 
--- Sessions table (stores every conversation turn + emotion data)
 CREATE TABLE IF NOT EXISTS sessions (
   id          BIGSERIAL PRIMARY KEY,
   user_id     TEXT      NOT NULL,
@@ -29,6 +24,3 @@ CREATE POLICY "service_role_all" ON sessions
   FOR ALL
   USING (auth.role() = 'service_role');
 
--- ============================================================
--- Done! Your database is ready.
--- ============================================================
