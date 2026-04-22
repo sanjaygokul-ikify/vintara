@@ -3,7 +3,8 @@
   padding-bottom: calc(16px + var(--safe-bottom));
   background: transparent;
   flex-shrink: 0;
-  position: relative;
+  position: sticky;
+  bottom: 0;
   z-index: 10;
 }
 
@@ -16,17 +17,17 @@
   align-items: flex-end;
   gap: 12px;
   background: rgba(8, 11, 9, 0.55);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  will-change: transform, backdrop-filter;
+  transform: translateZ(0);
   border: 0.5px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   border-radius: 28px;
   padding: 10px 10px 10px 20px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease;
 }
 .wrap:focus-within { 
-  border-color: rgba(16, 185, 129, 0.5); 
-  box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.6); 
 }
 
 .ta {

@@ -8,6 +8,7 @@ import ChatWindow      from './components/ChatWindow';
 import ChatInput       from './components/ChatInput';
 import BottomNav       from './components/BottomNav';
 import { useChat }     from './hooks/useChat';
+import { useViewportHeight } from './hooks/useViewportHeight';
 import s               from './App.module.css';
 
 function ChatApp({ user, onLogout }) {
@@ -97,6 +98,7 @@ function ChatApp({ user, onLogout }) {
 }
 
 export default function App() {
+  useViewportHeight();
   const [user, setUser]           = useState(null);
   const [checking, setChecking]   = useState(true);
 

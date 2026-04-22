@@ -25,6 +25,12 @@
   background: linear-gradient(180deg, #FFFFFF 0%, #A0AAB0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: slowFade 0.8s ease forwards;
+  opacity: 0;
+}
+@keyframes slowFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .welcomeSub { 
   font-family: var(--font);
@@ -33,6 +39,8 @@
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
+  animation: slowFade 0.8s ease 0.2s forwards;
+  opacity: 0;
 }
 @media (min-width:768px) {
   .welcome { padding: 60px 12px 24px; }
@@ -62,9 +70,10 @@
   font-size:15px; 
   line-height:1.6; 
   word-break:break-word;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  will-change: transform, backdrop-filter;
+  transform: translateZ(0);
 }
 .botBubble { 
   background: rgba(255, 255, 255, 0.03); 
@@ -79,7 +88,7 @@
   border-radius: 18px 4px 18px 18px; 
 }
 
-.tag { font-size:10px; padding:4px 12px; border-radius:20px; border: 0.5px solid; display:inline-flex; align-items:center; gap:6px; width:fit-content; backdrop-filter: blur(10px); }
+.tag { font-size:10px; padding:4px 12px; border-radius:20px; border: 0.5px solid; display:inline-flex; align-items:center; gap:6px; width:fit-content; backdrop-filter: blur(10px); will-change: backdrop-filter; transform: translateZ(0); }
 .risk { background:var(--red); color:#fff; font-size:9px; padding:2px 6px; border-radius:20px; font-weight:600; letter-spacing: 0.5px; text-transform: uppercase; }
 
 .typing { display:flex; align-items:center; gap:5px; padding:13px 15px; min-width:52px; }
