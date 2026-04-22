@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.sanjay.vintara",
+    "sha256_cert_fingerprints": [
+      "A8:1D:F3:F8:EF:13:82:5F:F2:71:B8:83:A9:E9:DC:5D:E9:F0:63:EB:F7:63:30:21:B0:F1:B2:4C:6A:28:01:D6"
+    ]
+  }
+}]
