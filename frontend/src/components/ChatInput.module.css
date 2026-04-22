@@ -1,52 +1,72 @@
 .bar {
-  padding: 10px 12px;
-  padding-bottom: calc(10px + var(--safe-bottom));
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
+  padding: 12px 16px;
+  padding-bottom: calc(16px + var(--safe-bottom));
+  background: transparent;
   flex-shrink: 0;
+  position: relative;
+  z-index: 10;
 }
 
 @media (min-width: 768px) {
-  .bar { padding: 14px 24px 18px; }
+  .bar { padding: 18px 32px 24px; }
 }
 
 .wrap {
   display: flex;
   align-items: flex-end;
-  gap: 10px;
-  background: var(--surface);
-  border: 1px solid var(--border2);
-  border-radius: 24px;
-  padding: 8px 8px 8px 16px;
-  transition: border-color 0.2s;
+  gap: 12px;
+  background: rgba(8, 11, 9, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border-radius: 28px;
+  padding: 10px 10px 10px 20px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.wrap:focus-within { border-color: var(--teal-d); }
+.wrap:focus-within { 
+  border-color: rgba(16, 185, 129, 0.5); 
+  box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15);
+}
 
 .ta {
   flex: 1;
   background: transparent;
   color: var(--text);
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
   resize: none;
   max-height: 120px;
   overflow-y: auto;
-  caret-color: var(--teal);
-  padding: 2px 0;
+  caret-color: var(--teal-l);
+  padding: 6px 0;
 }
-.ta::placeholder { color: var(--text3); }
+.ta::placeholder { color: var(--text2); font-weight: 300; }
 
 .btn {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--teal);
-  color: #fff;
+  background: transparent;
+  color: var(--teal-l);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: background 0.15s, transform 0.1s;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 0.5px solid rgba(16, 185, 129, 0.3);
 }
-.btn:active:not(.off) { transform: scale(0.92); background: var(--teal-d); }
-.off { background: var(--bg3); color: var(--text3); cursor: not-allowed; }
+.btn:hover:not(.off) {
+  background: rgba(16, 185, 129, 0.1);
+  transform: translateY(-1px);
+}
+.btn:active:not(.off) { 
+  transform: scale(0.92); 
+  background: rgba(16, 185, 129, 0.2); 
+}
+.off { 
+  background: transparent; 
+  color: var(--text3); 
+  border-color: transparent;
+  cursor: not-allowed; 
+}

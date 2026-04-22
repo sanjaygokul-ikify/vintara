@@ -46,15 +46,15 @@ function ChatApp({ user, onLogout }) {
             <button className={`${s.navBtn} ${s.deskOnly} ${view==='chat'?s.active:''}`} onClick={() => setView('chat')}>Chat</button>
             <button className={`${s.navBtn} ${s.deskOnly} ${view==='history'?s.active:''}`} onClick={() => setView('history')}>History</button>
 
-            {/* Mobile analytics icon — always visible on mobile */}
+            {/* Mobile analytics icon (heartbeat/pulse) — always visible on mobile */}
             <button className={`${s.iconBtn} ${s.deskHide}`} onClick={() => setAnalyticsOpen(true)} aria-label="Open analytics">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
               </svg>
             </button>
 
             <button className={s.iconBtn} onClick={onLogout} aria-label="Sign out">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>
               </svg>
             </button>

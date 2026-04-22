@@ -1,25 +1,35 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --bg:       #090e0c;
-  --bg2:      #101810;
-  --bg3:      #162018;
-  --surface:  #1c2a20;
-  --border:   rgba(255,255,255,0.07);
-  --border2:  rgba(255,255,255,0.13);
-  --teal:     #1D9E75;
-  --teal-l:   #5DCAA5;
-  --teal-d:   #0F6E56;
-  --amber:    #EF9F27;
-  --red:      #E24B4A;
-  --blue:     #378ADD;
-  --text:     #e6ede9;
-  --text2:    #8aa292;
-  --text3:    #4e6658;
-  --r:        10px;
-  --r2:       16px;
+  /* Obsidian Palette */
+  --bg:       #020403;
+  --bg2:      #060907;
+  --bg3:      #090E0A;
+  --surface:  rgba(255, 255, 255, 0.04);
+  --surface-blur: blur(24px);
+  --border:   rgba(255,255,255,0.08);
+  --border2:  rgba(255,255,255,0.12);
+  
+  /* Emerald Highlights */
+  --teal:     #10B981;
+  --teal-l:   #34D399;
+  --teal-d:   #047857;
+  
+  /* Standard colors */
+  --amber:    #F59E0B;
+  --red:      #EF4444;
+  --blue:     #3B82F6;
+  
+  /* Text */
+  --text:     #F3F4F6;
+  --text2:    #9CA3AF;
+  --text3:    #4B5563;
+  
+  --r:        12px;
+  --r2:       20px;
+  
   --font:     'DM Sans', sans-serif;
-  --font-d:   'Fraunces', serif;
-  --tab-h:    64px;
+  --font-d:   'Playfair Display', serif;
+  --tab-h:    68px;
   --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 html { height: 100%; height: -webkit-fill-available; }
@@ -35,7 +45,22 @@ body {
   overflow: hidden;
   overscroll-behavior: none;
 }
-#root { height: 100%; display: flex; flex-direction: column; }
+#root { 
+  height: 100%; 
+  display: flex; 
+  flex-direction: column; 
+  position: relative;
+}
+#root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 50% -20%, rgba(16, 185, 129, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(4, 120, 87, 0.08) 0%, transparent 40%);
+  z-index: 0;
+}
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-thumb { background: var(--surface); border-radius: 4px; }
 button { font-family: var(--font); cursor: pointer; border: none; outline: none; -webkit-tap-highlight-color: transparent; }
