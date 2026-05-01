@@ -1,10 +1,3 @@
-"""
-Ventara ML Core — v2
-====================
-FastAPI + Groq API + Supabase (PostgreSQL) backend.
-Handles: auth-aware chat, emotion detection, mood analytics, history.
-"""
-
 import os, json, datetime
 from collections import Counter
 from groq import Groq
@@ -13,7 +6,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import httpx
 
-# ── Config ─────────────────────────────────────────────────────────────────
 GROQ_API_KEY      = os.environ.get("GROQ_API_KEY", "")
 MODEL             = "llama-3.3-70b-versatile"
 SUPABASE_URL      = os.environ.get("SUPABASE_URL", "")
@@ -44,7 +36,6 @@ Rules:
 - Always validate the user's feelings before offering any perspective.
 """
 
-# ── Supabase helpers ────────────────────────────────────────────────────────
 
 def supa_headers():
     return {
@@ -69,7 +60,6 @@ def supa_select(table: str, filters: str, limit: int = 30):
     )
     return r.json()
 
-# ── Core ML functions ───────────────────────────────────────────────────────
 
 def parse_emotion_block(raw: str):
     emotion_data, clean = {}, raw
@@ -142,7 +132,6 @@ def do_chat(user_id: str, user_message: str, conversation_history: list) -> dict
 
     return {"reply": clean_reply, "emotion_data": emotion_data, "analytics": analytics}
 
-# ── FastAPI App ─────────────────────────────────────────────────────────────
 
 def create_api():
     api = FastAPI(title="Ventara API v2", version="2.0.0")
